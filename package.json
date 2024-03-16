@@ -1,0 +1,53 @@
+{
+    "scripts": {
+        "folk-ethereum": "hardhat node --fork https://mainnet.infura.io/v3/9dfabe6ebed94e1a89c64968cf057e83 --fork-block-number 18817492 --port 9001 --tags folked-ethereum",
+        "folk-linea": "hardhat node --fork https://rpc.linea.build --fork-block-number 2800000 --port 9000 --tags folked-linea",
+        "gen-typechain": "typechain --target ethers-v5 --out-dir contract-types './abis/*.json'",
+        "local-test": "npx hardhat test tests/UniswapV3.ts",
+        "create-sas": "npx hardhat run src/scripts/create-sas.ts --network folked_linea",
+        "distribute-fund-sas": "npx hardhat run src/scripts/distribute-fund-sas.ts --network folked_linea",
+        "distribute-fund": "npx hardhat run src/scripts/distribute-fund.ts --network folked_linea",
+        "enable-token": "npx hardhat run src/scripts/enable-token.ts --network folked_linea",
+        "distribute-token-paymaster": "npx hardhat run src/scripts/distribute-token-paymaster.ts --network folked_linea",
+        "read-fund": "npx hardhat run src/scripts/read-fund.ts --network arbitrum_mainnet",
+        "test": "npx hardhat run src/scripts/test.ts --network folked_linea",
+        "read-fund-local": "npx hardhat run src/scripts/read-fund.ts --network folked_linea",
+        "mainnet-test": "npx hardhat test tests/UniswapV3Mainnet.ts --network folked_ethereum",
+        "arbitrum-test": "npx hardhat test tests/UniswapV3Arbitrum.ts --network folked_linea",
+        "arbitrum-mainnet-deploy": "npx hardhat deploy --network arbitrum_mainnet --tags arbitrum-mainnet"
+    },
+    "devDependencies": {
+        "@account-abstraction/contracts": "^0.6.0",
+        "@nomiclabs/hardhat-ethers": "^2.2.3",
+        "@nomiclabs/hardhat-etherscan": "^3.1.7",
+        "@nomiclabs/hardhat-waffle": "^2.0.3",
+        "@nomiclabs/hardhat-web3": "^2.0.0",
+        "@openzeppelin/contracts": "^4.9.3",
+        "@typechain/ethers-v5": "^11.1.2",
+        "@typechain/hardhat": "^7.0.0",
+        "@types/hdkey": "^2.0.3",
+        "@types/mocha": "^10.0.4",
+        "@uniswap/smart-order-router": "^3.19.3",
+        "bip39": "^3.1.0",
+        "chai": "^4.3.10",
+        "dotenv": "^16.0.1",
+        "ethers": "^5.7.2",
+        "hardhat": "^2.9.7",
+        "hardhat-dependency-compiler": "^1.1.3",
+        "hardhat-deploy": "^0.11.43",
+        "hardhat-deploy-ethers": "^0.3.0-beta.13",
+        "hardhat-gas-reporter": "^1.0.9",
+        "hdkey": "^2.1.0",
+        "merkletreejs": "^0.3.11",
+        "solc": "^0.8.23-fixed",
+        "ts-node": "^10.9.2"
+    },
+    "dependencies": {
+        "@uniswap/sdk-core": "^4.0.10",
+        "@uniswap/v3-periphery": "^1.4.4",
+        "@uniswap/v3-sdk": "^3.10.0",
+        "big.js": "^6.2.1",
+        "bignumber.js": "^9.1.2",
+        "solidity-bytes-utils": "^0.8.0"
+    }
+}
